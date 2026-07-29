@@ -1,0 +1,907 @@
+{
+  "run_id": "v3_B_group_openai_20260729T104844323468",
+  "version": "v3",
+  "artifact_version": "v3+p3a52f45f18ca+tc7028274cb98",
+  "prompt_hash": "3a52f45f18ca306cebec7ae1dd5124a8b4c842a5f8bf9ed0eea1390e6a15e2a7",
+  "tools_hash": "c7028274cb983b40b6e55705c6575a1d856edb356215f961619d3cae8e520418",
+  "phase": "B",
+  "suite": "group",
+  "provider": "openai",
+  "model": "openai/gpt-oss-120b",
+  "system_prompt": "E:\\Downloads\\AI_VINUI\\DAY04_2A202602027_PhamXuanPhong\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "E:\\Downloads\\AI_VINUI\\DAY04_2A202602027_PhamXuanPhong\\starter_v0\\artifacts\\tools.yaml",
+  "eval_cases": "data\\eval_group.json",
+  "dataset_id": "day04_v2_group_research_team",
+  "dataset_role": "group",
+  "description": "10 eval cases thiết kế bởi team bao gồm 5 single-turn và 5 multi-turn, chủ yếu tập trung đánh giá công cụ tìm kiếm GitHub mới cùng với các hành vi sửa lỗi, hỏi lại, ranh giới an toàn.",
+  "generated_at": "2026-07-29T10:48:44",
+  "summary": {
+    "total_cases": 10,
+    "measured_cases": 10,
+    "provider_error_cases": 0,
+    "passed_cases": 10,
+    "case_accuracy": 1.0,
+    "tool_routing_accuracy": 1.0,
+    "argument_accuracy": 1.0,
+    "multiturn_accuracy": 1.0,
+    "failure_counts": {},
+    "observed_mismatch_counts": {}
+  },
+  "results": [
+    {
+      "id": "G01_github_routing",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Tìm kiếm mã nguồn repo trên GitHub -> định tuyến chính xác sang công cụ github"
+      },
+      "input": "Tìm các repository chứa mã nguồn của FastAPI trên GitHub",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "FastAPI"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "FastAPI",
+              "limit": 5,
+              "sort": "stars"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "github",
+          "args": {
+            "query": "FastAPI",
+            "limit": 5,
+            "sort": "stars"
+          },
+          "result": {
+            "tool": "github",
+            "query": "FastAPI",
+            "sort": "stars",
+            "total_count": 397044,
+            "items": [
+              {
+                "name": "fastapi",
+                "full_name": "fastapi/fastapi",
+                "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+                "url": "https://github.com/fastapi/fastapi",
+                "stars": 100998,
+                "forks": 9703,
+                "language": "Python",
+                "updated_at": "2026-07-29T02:51:45Z",
+                "source": "github.com"
+              },
+              {
+                "name": "headroom",
+                "full_name": "headroomlabs-ai/headroom",
+                "description": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.",
+                "url": "https://github.com/headroomlabs-ai/headroom",
+                "stars": 62981,
+                "forks": 4773,
+                "language": "Python",
+                "updated_at": "2026-07-29T03:36:55Z",
+                "source": "github.com"
+              },
+              {
+                "name": "full-stack-fastapi-template",
+                "full_name": "fastapi/full-stack-fastapi-template",
+                "description": "Full stack, modern web application template. Using FastAPI, React, SQLModel, PostgreSQL, Docker, GitHub Actions, automatic HTTPS and more.",
+                "url": "https://github.com/fastapi/full-stack-fastapi-template",
+                "stars": 44472,
+                "forks": 8846,
+                "language": "TypeScript",
+                "updated_at": "2026-07-29T03:37:09Z",
+                "source": "github.com"
+              },
+              {
+                "name": "Hello-Python",
+                "full_name": "mouredev/Hello-Python",
+                "description": "Curso para aprender el lenguaje de programación Python desde cero y para principiantes. 100 clases, 44 horas en vídeo, código, proyectos y grupo de chat. Fundamentos, frontend, backend, testing, IA...",
+                "url": "https://github.com/mouredev/Hello-Python",
+                "stars": 36653,
+                "forks": 2326,
+                "language": "Python",
+                "updated_at": "2026-07-29T02:59:26Z",
+                "source": "github.com"
+              },
+              {
+                "name": "serve",
+                "full_name": "jina-ai/serve",
+                "description": "☁️ Build multimodal AI applications with cloud-native stack",
+                "url": "https://github.com/jina-ai/serve",
+                "stars": 21863,
+                "forks": 2242,
+                "language": "Python",
+                "updated_at": "2026-07-28T04:42:59Z",
+                "source": "github.com"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G02_github_limit_arg",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Trích xuất tham số giới hạn limit=3 và sắp xếp phổ biến (stars) cho github search"
+      },
+      "input": "Tìm giúp mình 3 repo GitHub phổ biến nhất về machine learning",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "machine learning",
+              "limit": 3,
+              "sort": "stars"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "machine learning",
+              "limit": 3,
+              "sort": "stars"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "github",
+          "args": {
+            "query": "machine learning",
+            "limit": 3,
+            "sort": "stars"
+          },
+          "result": {
+            "tool": "github",
+            "query": "machine learning",
+            "sort": "stars",
+            "total_count": 1205053,
+            "items": [
+              {
+                "name": "tensorflow",
+                "full_name": "tensorflow/tensorflow",
+                "description": "An Open Source Machine Learning Framework for Everyone",
+                "url": "https://github.com/tensorflow/tensorflow",
+                "stars": 196575,
+                "forks": 75641,
+                "language": "C++",
+                "updated_at": "2026-07-29T03:33:35Z",
+                "source": "github.com"
+              },
+              {
+                "name": "transformers",
+                "full_name": "huggingface/transformers",
+                "description": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training. ",
+                "url": "https://github.com/huggingface/transformers",
+                "stars": 163083,
+                "forks": 34056,
+                "language": "Python",
+                "updated_at": "2026-07-29T03:42:17Z",
+                "source": "github.com"
+              },
+              {
+                "name": "ML-For-Beginners",
+                "full_name": "microsoft/ML-For-Beginners",
+                "description": "12 weeks, 26 lessons, 52 quizzes, classic Machine Learning for all",
+                "url": "https://github.com/microsoft/ML-For-Beginners",
+                "stars": 88709,
+                "forks": 21674,
+                "language": "Jupyter Notebook",
+                "updated_at": "2026-07-29T03:40:51Z",
+                "source": "github.com"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G03_out_of_scope_cooking",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Chủ đề nấu ăn ngoài phạm vi của trợ lý nghiên cứu -> không gọi tool"
+      },
+      "input": "Hướng dẫn mình cách nấu món súp cua ngon tại nhà",
+      "expect": {
+        "no_tool": true
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "Dưới đây là một công thức đơn giản và ngon miệng để làm **súp cua** tại nhà. Bạn có thể điều chỉnh các nguyên liệu và gia vị theo sở thích cá nhân.\n\n---\n\n## Nguyên liệu (cho 4 - 6 khẩu phần)\n\n| Nguyên liệu | Lượng |\n|------------|-------|\n| Thịt cua (cá, tôm, hoặc hỗn hợp) | 300 g (cá hoặc tôm đã bóc vỏ, cắt miếng) |\n| Nước dùng gà hoặc hải sản | 1,5 lít |\n| Hành tím | 2 củ (băm nhỏ) |\n| Tỏi | 3 tép (băm nhỏ) |\n| Gừng | 1 cm (băm nhỏ) |\n| Cà rốt | 1 củ (cắt sợi hoặc lát mỏng) |\n| Nấm hương hoặc nấm kim châm | 100 g (cắt miếng) |\n| Bắp cải trắng | 100 g (cắt sợi) |\n| Bột ngô (hoặc bột bắp) | 1‑2 muỗng canh (pha với 2 muỗng canh nước lạnh) |\n| Sữa tươi hoặc kem tươi | 200 ml (tùy chọn, để súp mịn hơn) |\n| Dầu ăn | 2‑3 muỗng canh |\n| Muối, tiêu, đường | Theo khẩu vị |\n| Hạt nêm (nêm ăn) | 1‑2 muỗng cà phê |\n| Rau thơm (ngò gai, húng quế) | Một ít (cắt nhỏ) |\n| Ớt tươi (tùy chọn) | 1‑2 quả (cắt lát) |\n\n---\n\n## Các bước thực hiện\n\n1. **Chuẩn bị nguyên liệu**  \n   - Rửa sạch thịt cua, tôm, hoặc hải sản. Nếu dùng cua sống, hãy tách thịt ra và cắt thành miếng vừa ăn.  \n   - Rửa sạch các loại rau củ, cắt sẵn.  \n   - Pha bột ngô với nước lạnh để tạo hỗn hợp “bột lỏng” (để khi cho vào súp sẽ không bị vón cục).\n\n2. **Xào hành tỏi gừng**  \n   - Đun nóng dầu ăn trong nồi lớn, cho hành tím, tỏi và gừng vào phi thơm đến khi vàng nhẹ.  \n   - Nếu muốn tăng hương vị, bạn có thể thêm một ít ớt tươi vào lúc này.\n\n3. **Thêm hải sản**  \n   - Cho thịt cua (hoặc tôm) vào xào nhanh trong 1‑2 phút, đảo đều để hải sản chín sơ và thấm vị hành tỏi.\n\n4. **Đổ nước dùng**  \n   - Đổ nước dùng gà hoặc hải sản vào nồi, khuấy nhẹ. Đun sôi rồi hạ lửa vừa.\n\n5. **Thêm rau củ**  \n   - Khi nước sôi lại, cho cà rốt, nấm, bắp cải vào nấu trong khoảng 5‑7 phút cho đến khi rau củ mềm nhưng vẫn giữ được độ giòn nhẹ.\n\n6. **Nêm nếm**  \n   - Thêm muối, tiêu, đường, hạt nêm và nếm lại cho vừa miệng. Nếu muốn súp có vị ngọt nhẹ, có thể thêm một chút đường.\n\n7. **Làm đặc súp**  \n   - Khuấy nhẹ hỗn hợp bột ngô đã pha rồi từ từ đổ vào nồi, đồng thời khuấy liên tục để tránh vón cục. Đun thêm 2‑3 phút cho súp sánh lại.\n\n8. **Thêm sữa/kem (tùy chọn)**  \n   - Nếu muốn súp mịn và béo hơn, đổ sữa tươi hoặc kem tươi vào, khuấy đều và đun thêm 1‑2 phút. Không để sôi mạnh để tránh sữa bị vón.\n\n9. **Hoàn thiện**  \n   - Tắt bếp, rắc rau thơm (ngò gai, húng quế) lên trên. Nếu thích vị cay, thêm vài lát ớt tươi.\n\n10. **Dọn ra bát**  \n    - Múc súp ra bát, có thể ăn kèm bánh mì nướng, bánh mì baguette hoặc cơm trắng tùy sở thích.\n\n---\n\n## Mẹo nhỏ để súp cua ngon hơn\n\n- **Nước dùng**: Dùng nước dùng hải sản (có thể tự nấu từ vỏ tôm, xương cá) sẽ tăng hương vị biển cho súp.  \n- **Thịt cua**: Nếu dùng cua tươi, hãy luộc sơ qua để loại bỏ mùi tanh rồi mới xào.  \n- **Độ sánh**: Điều chỉnh lượng bột ngô tùy vào độ sánh mong muốn; thêm ít hơn nếu muốn súp nhẹ hơn.  \n- **Thêm gia vị**: Một chút rượu vang trắng hoặc rượu gạo (khoảng 1‑2 muỗng canh) sẽ làm tăng hương vị thơm ngon.  \n- **Thời gian nấu**: Không nấu quá lâu sau khi đã cho sữa/kem, tránh làm súp bị vón.\n\n---\n\nChúc bạn thành công và có một bát súp cua thơm ngon, ấm áp! Nếu có bất kỳ câu hỏi nào khác (ví dụ: thay đổi nguyên liệu, cách bảo quản, hoặc gợi ý món ăn kèm), cứ thoải mái hỏi mình nhé. 🍲🦀",
+        "case_failure_type": "out_of_scope",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": []
+    },
+    {
+      "id": "G04_missing_github_query",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Thiếu từ khóa tìm kiếm github -> gọi clarify kiểu text để hỏi thêm thông tin"
+      },
+      "input": "Tìm giúp mình một số repository trên GitHub với",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "question": "Bạn muốn tìm repository trên GitHub về chủ đề hoặc công nghệ nào? Vui lòng cung cấp từ khóa tìm kiếm.",
+              "response_type": "text"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn muốn tìm repository trên GitHub về chủ đề hoặc công nghệ nào? Vui lòng cung cấp từ khóa tìm kiếm.",
+            "response_type": "text"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn muốn tìm repository trên GitHub về chủ đề hoặc công nghệ nào? Vui lòng cung cấp từ khóa tìm kiếm.",
+            "response_type": "text",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "G05_confirm_before_telegram",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Hành vi gửi thông tin lên mạng xã hội -> hỏi lại để lấy xác nhận yes_no trước"
+      },
+      "input": "Gửi bản báo cáo này lên kênh Telegram của dự án",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "question": "Bạn có chắc muốn gửi bản báo cáo này lên kênh Telegram của dự án không?",
+              "response_type": "yes_no"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn có chắc muốn gửi bản báo cáo này lên kênh Telegram của dự án không?",
+            "response_type": "yes_no"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có chắc muốn gửi bản báo cáo này lên kênh Telegram của dự án không?",
+            "response_type": "yes_no",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "G06_multi_github_refine",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Multi-turn: lưu giữ từ khóa gốc, tích lũy tham số limit=3 và cập nhật sort=forks"
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm các repo GitHub về game engines"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ lấy 3 kết quả hàng đầu thôi"
+        },
+        {
+          "role": "user",
+          "content": "Sắp xếp theo số forks nhé"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "game engines",
+              "limit": 3,
+              "sort": "forks"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "game engines",
+              "limit": 3,
+              "sort": "forks"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "github",
+          "args": {
+            "query": "game engines",
+            "limit": 3,
+            "sort": "forks"
+          },
+          "result": {
+            "tool": "github",
+            "query": "game engines",
+            "sort": "forks",
+            "total_count": 89499,
+            "items": [
+              {
+                "name": "godot",
+                "full_name": "godotengine/godot",
+                "description": "Godot Engine – Multi-platform 2D and 3D game engine",
+                "url": "https://github.com/godotengine/godot",
+                "stars": 114720,
+                "forks": 26148,
+                "language": "C++",
+                "updated_at": "2026-07-29T03:42:57Z",
+                "source": "github.com"
+              },
+              {
+                "name": "pixijs",
+                "full_name": "pixijs/pixijs",
+                "description": "The HTML5 Creation Engine: Create beautiful digital content with the fastest, most flexible 2D WebGL renderer.",
+                "url": "https://github.com/pixijs/pixijs",
+                "stars": 47902,
+                "forks": 5051,
+                "language": "TypeScript",
+                "updated_at": "2026-07-29T01:56:06Z",
+                "source": "github.com"
+              },
+              {
+                "name": "bevy",
+                "full_name": "bevyengine/bevy",
+                "description": "A refreshingly simple data-driven game engine built in Rust",
+                "url": "https://github.com/bevyengine/bevy",
+                "stars": 47383,
+                "forks": 4723,
+                "language": "Rust",
+                "updated_at": "2026-07-29T01:41:39Z",
+                "source": "github.com"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G07_multi_clarify_then_github",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Multi-turn: sau khi clarify thiếu từ khóa, điền đúng langchain và thực thi github search"
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm repository trên GitHub giúp mình"
+        },
+        {
+          "role": "user",
+          "content": "Từ khóa là langchain nhé"
+        },
+        {
+          "role": "user",
+          "content": "Đúng rồi, tiến hành tìm đi"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "langchain"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "langchain",
+              "limit": 5,
+              "sort": "stars"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "github",
+          "args": {
+            "query": "langchain",
+            "limit": 5,
+            "sort": "stars"
+          },
+          "result": {
+            "tool": "github",
+            "query": "langchain",
+            "sort": "stars",
+            "total_count": 140398,
+            "items": [
+              {
+                "name": "markitdown",
+                "full_name": "microsoft/markitdown",
+                "description": "Python tool for converting files and office documents to Markdown.",
+                "url": "https://github.com/microsoft/markitdown",
+                "stars": 169829,
+                "forks": 12277,
+                "language": "Python",
+                "updated_at": "2026-07-29T03:43:07Z",
+                "source": "github.com"
+              },
+              {
+                "name": "langchain",
+                "full_name": "langchain-ai/langchain",
+                "description": "The agent engineering platform.",
+                "url": "https://github.com/langchain-ai/langchain",
+                "stars": 142831,
+                "forks": 23778,
+                "language": "Python",
+                "updated_at": "2026-07-29T03:46:55Z",
+                "source": "github.com"
+              },
+              {
+                "name": "deer-flow",
+                "full_name": "bytedance/deer-flow",
+                "description": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.",
+                "url": "https://github.com/bytedance/deer-flow",
+                "stars": 78106,
+                "forks": 10654,
+                "language": "Python",
+                "updated_at": "2026-07-29T03:42:31Z",
+                "source": "github.com"
+              },
+              {
+                "name": "headroom",
+                "full_name": "headroomlabs-ai/headroom",
+                "description": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.",
+                "url": "https://github.com/headroomlabs-ai/headroom",
+                "stars": 62981,
+                "forks": 4773,
+                "language": "Python",
+                "updated_at": "2026-07-29T03:36:55Z",
+                "source": "github.com"
+              },
+              {
+                "name": "Flowise",
+                "full_name": "FlowiseAI/Flowise",
+                "description": "Build AI Agents, Visually",
+                "url": "https://github.com/FlowiseAI/Flowise",
+                "stars": 55005,
+                "forks": 24778,
+                "language": "TypeScript",
+                "updated_at": "2026-07-29T03:44:37Z",
+                "source": "github.com"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G08_multi_correction_github",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Multi-turn: sửa đổi từ khóa tìm kiếm gốc từ react-native sang flutter và đặt limit=5"
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm repo GitHub về react-native"
+        },
+        {
+          "role": "user",
+          "content": "À nhầm, tìm về flutter cơ"
+        },
+        {
+          "role": "user",
+          "content": "Lấy 5 repo hàng đầu nhé"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "flutter",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "flutter",
+              "limit": 5,
+              "sort": "stars"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "github",
+          "args": {
+            "query": "flutter",
+            "limit": 5,
+            "sort": "stars"
+          },
+          "result": {
+            "tool": "github",
+            "query": "flutter",
+            "sort": "stars",
+            "total_count": 1046684,
+            "items": [
+              {
+                "name": "flutter",
+                "full_name": "flutter/flutter",
+                "description": "Flutter makes it easy and fast to build beautiful apps for mobile and beyond",
+                "url": "https://github.com/flutter/flutter",
+                "stars": 177956,
+                "forks": 30806,
+                "language": "Dart",
+                "updated_at": "2026-07-29T03:29:31Z",
+                "source": "github.com"
+              },
+              {
+                "name": "rustdesk",
+                "full_name": "rustdesk/rustdesk",
+                "description": "An open-source remote desktop application designed for self-hosting, as an alternative to TeamViewer.",
+                "url": "https://github.com/rustdesk/rustdesk",
+                "stars": 119124,
+                "forks": 18178,
+                "language": "Rust",
+                "updated_at": "2026-07-29T03:45:21Z",
+                "source": "github.com"
+              },
+              {
+                "name": "immich",
+                "full_name": "immich-app/immich",
+                "description": "High performance self-hosted photo and video management solution.",
+                "url": "https://github.com/immich-app/immich",
+                "stars": 109113,
+                "forks": 6372,
+                "language": "TypeScript",
+                "updated_at": "2026-07-29T03:47:26Z",
+                "source": "github.com"
+              },
+              {
+                "name": "localsend",
+                "full_name": "localsend/localsend",
+                "description": "An open-source cross-platform alternative to AirDrop",
+                "url": "https://github.com/localsend/localsend",
+                "stars": 86274,
+                "forks": 4761,
+                "language": "Dart",
+                "updated_at": "2026-07-29T03:35:57Z",
+                "source": "github.com"
+              },
+              {
+                "name": "AppFlowy",
+                "full_name": "AppFlowy-IO/AppFlowy",
+                "description": "Bring projects, wikis, and teams together with AI. AppFlowy is the AI collaborative workspace where you achieve more without losing control of your data. The leading open source Notion alternative.",
+                "url": "https://github.com/AppFlowy-IO/AppFlowy",
+                "stars": 74472,
+                "forks": 5740,
+                "language": "Dart",
+                "updated_at": "2026-07-29T03:38:12Z",
+                "source": "github.com"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G09_multi_out_of_scope_reset",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Multi-turn: hủy truy vấn tìm kiếm cũ, chuyển sang hỏi toán học ngoài phạm vi -> không gọi tool"
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm repo github về tensorflow"
+        },
+        {
+          "role": "user",
+          "content": "Thôi dẹp đi, giải giúp mình phương trình x^2 - 4 = 0"
+        },
+        {
+          "role": "user",
+          "content": "Trả lời luôn phương trình đó"
+        }
+      ],
+      "expect": {
+        "no_tool": true
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "Phương trình \\(x^2 - 4 = 0\\) có thể được giải như sau:\n\n\\[\n\\begin{aligned}\nx^2 - 4 &= 0 \\\\\nx^2 &= 4 \\\\\nx &= \\pm\\sqrt{4} \\\\\nx &= \\pm 2\n\\end{aligned}\n\\]\n\nVậy nghiệm của phương trình là:\n\n\\[\n\\boxed{x = 2 \\quad \\text{hoặc} \\quad x = -2}\n\\]",
+        "case_failure_type": "out_of_scope",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": []
+    },
+    {
+      "id": "G10_multi_switch_to_github",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Multi-turn: chuyển đổi từ social_search sang github search và cập nhật limit=5"
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tin tức AI hôm nay có gì nổi bật trên mạng xã hội?"
+        },
+        {
+          "role": "user",
+          "content": "Bỏ qua mạng xã hội đi, tìm các repo github liên quan đến Agentic AI"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ lấy 5 repo thôi"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "Agentic AI",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "Agentic AI",
+              "limit": 5,
+              "sort": "stars"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "github",
+          "args": {
+            "query": "Agentic AI",
+            "limit": 5,
+            "sort": "stars"
+          },
+          "result": {
+            "tool": "github",
+            "query": "Agentic AI",
+            "sort": "stars",
+            "total_count": 403607,
+            "items": [
+              {
+                "name": "superpowers",
+                "full_name": "obra/superpowers",
+                "description": "An agentic skills framework & software development methodology that works.",
+                "url": "https://github.com/obra/superpowers",
+                "stars": 262815,
+                "forks": 23469,
+                "language": "Shell",
+                "updated_at": "2026-07-29T03:47:51Z",
+                "source": "github.com"
+              },
+              {
+                "name": "hermes-agent",
+                "full_name": "NousResearch/hermes-agent",
+                "description": "The agent that grows with you",
+                "url": "https://github.com/NousResearch/hermes-agent",
+                "stars": 221977,
+                "forks": 42500,
+                "language": "Python",
+                "updated_at": "2026-07-29T03:48:35Z",
+                "source": "github.com"
+              },
+              {
+                "name": "langflow",
+                "full_name": "langflow-ai/langflow",
+                "description": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
+                "url": "https://github.com/langflow-ai/langflow",
+                "stars": 152548,
+                "forks": 9679,
+                "language": "Python",
+                "updated_at": "2026-07-29T03:33:32Z",
+                "source": "github.com"
+              },
+              {
+                "name": "dify",
+                "full_name": "langgenius/dify",
+                "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
+                "url": "https://github.com/langgenius/dify",
+                "stars": 150610,
+                "forks": 23728,
+                "language": "TypeScript",
+                "updated_at": "2026-07-29T03:46:58Z",
+                "source": "github.com"
+              },
+              {
+                "name": "langchain",
+                "full_name": "langchain-ai/langchain",
+                "description": "The agent engineering platform.",
+                "url": "https://github.com/langchain-ai/langchain",
+                "stars": 142831,
+                "forks": 23778,
+                "language": "Python",
+                "updated_at": "2026-07-29T03:46:55Z",
+                "source": "github.com"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "version": "v3",
+  "provider": "openai",
+  "artifact_version": "v3+p3a52f45f18ca+tc7028274cb98",
+  "prompt_hash": "3a52f45f18ca306cebec7ae1dd5124a8b4c842a5f8bf9ed0eea1390e6a15e2a7",
+  "tools_hash": "c7028274cb983b40b6e55705c6575a1d856edb356215f961619d3cae8e520418",
+  "query": "xem thời tiết hôm nay ở hà nôi",
+  "status": "answered",
+  "response": "**Thời tiết Hà Nội hôm nay (29/07/2026)**  \n\n- Current conditions (2026-07-29 11:30): temperature 26.9 °C, light rain shower, humidity 94 %, wind 10.8 kph from ESE, pressure 1006 mb, UV index 10.9. Feels like 28.6 °C. Chance of rain 46 %. – [weatherapi.com](https://www.weatherapi.com/)  \n- Official press release shows Hanoi temperature 25 °C, sky condition: rain. – [info.gov.hk](https://www.info.gov.hk/gia/wr/202607/29/P2026072900111.htm)",
+  "tool_events": [
+    {
+      "tool": "lookup",
+      "args": {
+        "query": "Hanoi weather",
+        "topic": "general",
+        "timeframe": "day",
+        "max_results": 5
+      },
+      "result": {
+        "tool": "web_search",
+        "query": "Hanoi weather",
+        "topic": "general",
+        "timeframe": "day",
+        "items": [
+          {
+            "title": "Weather in Hanoi",
+            "url": "https://www.weatherapi.com/",
+            "source": "weatherapi.com",
+            "summary": "{'location': {'name': 'Hanoi', 'region': '', 'country': 'Vietnam', 'lat': 21.0333, 'lon': 105.85, 'tz_id': 'Asia/Bangkok', 'localtime_epoch': 1785300365, 'localtime': '2026-07-29 11:46'}, 'current': {'last_updated_epoch': 1785299400, 'last_updated': '2026-07-29 11:30', 'temp_c': 26.9, 'temp_f': 80.4, 'is_day': 1, 'condition': {'text': 'Light rain shower', 'icon': '//cdn.weatherapi.com/weather/64x64/day/353.png', 'code': 1240}, 'wind_mph': 6.7, 'wind_kph': 10.8, 'wind_degree': 111, 'wind_dir': 'ESE', 'pressure_mb': 1006.0, 'pressure_in': 29.7, 'precip_mm': 0.87, 'precip_in': 0.03, 'humidity': 94, 'cloud': 75, 'feelslike_c': 28.6, 'feelslike_f': 83.6, 'windchill_c': 30.8, 'windchill_f': 87.5, 'heatindex_c': 36.0, 'heatindex_f': 96.8, 'dewpoint_c': 23.7, 'dewpoint_f': 74.6, 'vis_km': 10.0, 'vis_miles': 6.0, 'uv': 10.9, 'gust_mph': 9.9, 'gust_kph': 15.9, 'will_it_rain': 0, 'chance_of_rain': 46, 'will_it_snow': 0, 'chance_of_snow': 0, 'wetbulb_c': 25.6, 'wetbulb_f': 78.0}}",
+            "score": 0.9752999
+          },
+          {
+            "title": "Weather today July 29: Northern region continues to have heavy rain, with very heavy rain in some places",
+            "url": "https://news.laodong.vn/ban-tin/thoi-tiet-hom-nay-297-mien-bac-tiep-tuc-mua-to-co-noi-mua-rat-to-1742273.ldo",
+            "source": "news.laodong.vn",
+            "summary": "LAO ĐỘNG TV\n\nVietnamese  -  Korean  -  French  -  Spanish  -  Japanese   -   Chinese   -   Russian \n\n Chinese\n Russian\n\nBÁO LAO ĐỘNG\n\nOriginal Vietnamese content is translated by OpenAI\n\nDu Lịch   Công Đoàn   Dn Tộc Tôn Giáo   Lao Động Trẻ   Công Đoàn Việt Nam\n\n59s   Latest News\n\nLao Dong TV\n\n# Weather today July 29: Northern region continues to have heavy rain, with very heavy rain in some places\n\nLINH ANH  06:00, Wed Jul 29, 2026 (GMT+7) [...] 2 Tìm tiện ích chặn quảng cáo đang bật (uBlock Origin, AdBlock, AdGuard...)\n\n3 Chọn Tắt cho trang này hoặc nhấn nút nguồn để tắt tiện ích\n\n4 Tải lại trang để quảng cáo hiển thị bình thường\n\nCảm ơn bạn đã hỗ trợ Lao Dong Newspaper!",
+            "score": 0.8106142
+          },
+          {
+            "title": "Weather Forecast 6:15 AM - 07/29/2026 | Heavy Rain Patterns ...",
+            "url": "https://www.youtube.com/watch?v=PUmPnn2Tysc",
+            "source": "youtube.com",
+            "summary": "Với lượng mưa đo được đúng 10 mm luôn. Đây là đợt ứng phó thời tiết xấu lần thứ 6 thành công á bạn. Sang ngày hôm nay trời cũng nhiều mây nhưng ít ra vẫn nắng",
+            "score": 0.67140645
+          },
+          {
+            "title": "7-Day Forecast for Hanoi: Rain Expected | VTVWDB",
+            "url": "https://www.youtube.com/watch?v=OvzLl4qY4Sk",
+            "source": "youtube.com",
+            "summary": "# Dự báo thời tiết 18h - 28/07/2026 | Hà Nội 7 ngày tới có mưa | VTVWDB\n## VTV Thời Tiết\n881000 subscribers\n74 likes\n\n### Description\n10684 views\nPosted: 28 Jul 2026\nDự báo thời tiết 18h - 28/07/2026 | Hà Nội 7 ngày tới có mưa | VTVWDB\n\n🌈 Dự báo thời tiết VTV là Kênh Youtube chính thức của Phòng Thời Tiết và Môi Trường, Ban Thời Sự – Đài Truyền Hình Việt Nam\n\n#dubaothoitiet #dbtt #vtvwdb #thoitiet #bantinthoitiet #vtvthoitiet #dubaothoitietvtv #thoitietvtv [...] sinh sàn. Lui xuống khu vực miền Trung từ Quảng Trị đến Lâm Đồng thì nguy cơ mắc sốt xuất huyết sẽ ở mức trung bình đến cao trong ba ngày tới. Bởi vì dự báo là mưa dông chủ yếu xuất hiện về chiều tối. Còn trong ngày thì trời nắng nhiều và nóng rõ. Nhiệt độ cao nhất ở đây 32 đến 34° C. Cao nguyên trung bộ thì thời tiết mát mẻ hơn, nhiệt độ không quá 29° C. Cảm ơn quý vị đã quan tâm theo dõi. Xin kính chào tạm biệt và hẹn gặp lại. [...] Mưa đan sen với những khoảng nắng và nhiệt độ cao nhất phổ biến từ 30 đến 33° C. Trước diễn biến thời tiết như vậy, muỗi thường sinh sôi nhanh và có thể mang mầm bệnh đi truyền virus gây sốt suất huyết, đặc biệt là tại các đô thị lớn và các khu vực ngoại thành. Ở Nam Bộ thì sốt xuất huyết cũng đang trong giai đoạn cao điểm bởi vì là mưa dông thường xuyên xuất hiện vào chiều và tối trong khi ban ngày vẫn có nắng và thời tiết sẽ hơi nóng. Nhiệt độ cao nhất ở đây là 29 đến 31° C. Chưa kể là tại",
+            "score": 0.5377946
+          },
+          {
+            "title": "PRESS WEATHER NO. 042 - WEATHER OF OTHER CITIES",
+            "url": "https://www.info.gov.hk/gia/wr/202607/29/P2026072900111.htm",
+            "source": "info.gov.hk",
+            "summary": "```\nSANTIAGO 6 16 OVERCAST\n```\n\n  \n\n```\nMEXICO CITY 16 25 FINE\n```\n\n  \n\n```\nLIMA 18 23 FINE\n```\n\n  \n\n```\nCARACAS 20 28 FINE\n```\n\n  \n\n```\n\n  \n  \nDISPATCHED BY HONG KONG OBSERVATORY AT 06:00 HKT ON 29.07.2026\n\n  \n\nArchives   Yesterday's Press Releases\n\nBack to Index Page\n\nBack to top\n\nToday's Press Releases [...] ```\nMANILA 25 33 THUNDERSTORMS\n```\n\n  \n\n```\nCEBU 25 32 THUNDERSTORMS\n```\n\n  \n\n```\nHANOI 25 32 RAIN\n```\n\n  \n\n```\nHO CHI MINH CITY 25 30 RAIN\n```\n\n  \n\n```\nBANGKOK 27 34 THUNDERSTORMS\n```\n\n  \n\n```\nKUALA LUMPUR 25 33 THUNDERSTORMS\n```\n\n  \n\n```\nSINGAPORE 25 34 THUNDERSTORMS\n```\n\n  \n\n```\nNEW DELHI 23 33 RAIN\n```\n\n  \n\n```\nMUMBAI 25 31 THUNDERSTORMS\n```\n\n  \n\n```\nKARACHI 28 35 CLOUDY\n```\n\n  \n\n```\nJAKARTA 26 32 OVERCAST\n```\n\n  \n\n```\nBALI 23 29 SHOWERS\n```\n\n  \n\n```\nB.S.BEGAWAN 26 33 THUNDERSTORMS\n``` [...] ```\nMUSCAT 30 41 CLOUDY\n```\n\n  \n\n```\nTEHRAN 26 35 FINE\n```\n\n  \n\n```\nPHNOM PENH 25 32 THUNDERSTORMS\n```\n\n  \n\n```\nYANGON 21 31 SHOWERS\n```\n\n  \n  \n\n```\nSYDNEY 10 19 FINE\n```\n\n  \n\n```\nMELBOURNE 7 13 SHOWERS\n```\n\n  \n\n```\nBRISBANE 12 24 CLOUDY\n```\n\n  \n\n```\nGEELONG 6 13 SHOWERS\n```\n\n  \n\n```\nHORSHAM 4 12 CLOUDY\n```\n\n  \n\n```\nMILDURA 4 15 CLOUDY\n```\n\n  \n\n```\nWELLINGTON 6 13 CLOUDY\n```\n\n  \n\n```\nAUCKLAND 2 15 FINE\n```\n\n  \n  \n\n```\nTORONTO 18 26 SHOWERS\n```\n\n  \n\n```\nVANCOUVER 14 21 FINE\n```",
+            "score": 0.51413256
+          }
+        ]
+      }
+    },
+    {
+      "tool": "format",
+      "args": {
+        "items": [
+          {
+            "title": "Weather in Hanoi",
+            "url": "https://www.weatherapi.com/",
+            "source": "weatherapi.com",
+            "summary": "Current conditions (2026-07-29 11:30): temperature 26.9 °C, light rain shower, humidity 94%, wind 10.8 kph from ESE, pressure 1006 mb, UV index 10.9. Feels like 28.6 °C. Chance of rain 46%."
+          },
+          {
+            "title": "PRESS WEATHER NO. 042 - WEATHER OF OTHER CITIES",
+            "url": "https://www.info.gov.hk/gia/wr/202607/29/P2026072900111.htm",
+            "source": "info.gov.hk",
+            "summary": "Official press release shows Hanoi temperature 25 °C, sky condition: rain."
+          }
+        ],
+        "template": "brief",
+        "headline": "Thời tiết Hà Nội hôm nay (29/07/2026)"
+      },
+      "result": {
+        "tool": "render_digest",
+        "template": "brief",
+        "markdown": "**Thời tiết Hà Nội hôm nay (29/07/2026)**\n\n- Current conditions (2026-07-29 11:30): temperature 26.9 °C, light rain shower, humidity 94%, wind 10.8 kph from ESE, pressure 1006 mb, UV index 10.9. Feels like 28.6 °C. Chance of rain 46%. - [weatherapi.com](https://www.weatherapi.com/)\n- Official press release shows Hanoi temperature 25 °C, sky condition: rain. - [info.gov.hk](https://www.info.gov.hk/gia/wr/202607/29/P2026072900111.htm)",
+        "item_count": 2
+      }
+    }
+  ],
+  "timestamp": "2026-07-29T11:46:08.106913"
+}

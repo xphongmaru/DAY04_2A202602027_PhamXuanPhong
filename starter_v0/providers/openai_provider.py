@@ -21,6 +21,11 @@ class OpenAIProvider:
         self.base_url = base_url
         self.default_model = default_model
 
+        # Override default model and base URL if NVIDIA API Key is configured and OPENAI_API_KEY is not.
+        if api_key_env == "OPENAI_API_KEY" and not os.getenv("OPENAI_API_KEY") and os.getenv("NVIDIA_API_KEY"):
+            self.base_url = os.getenv("NVIDIA_BASE_URL", "https://integrate.api.nvidia.com/v1")
+            self.default_model = os.getenv("NVIDIA_MODEL", "openai/gpt-oss-120b")
+
     def complete(
         self,
         messages: list[dict[str, str]],
@@ -36,6 +41,9 @@ class OpenAIProvider:
             raise RuntimeError("Install live provider dependency first: pip install openai") from exc
 
         api_key = os.getenv(self.api_key_env)
+        if not api_key and self.api_key_env == "OPENAI_API_KEY":
+            api_key = os.getenv("NVIDIA_API_KEY")
+
         if not api_key:
             raise RuntimeError(f"Missing API key env var: {self.api_key_env}")
 

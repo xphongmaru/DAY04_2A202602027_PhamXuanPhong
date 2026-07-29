@@ -1,7 +1,264 @@
 {
-  "dataset_id": "day04_v2_research_group",
+  "dataset_id": "day04_v2_group_research_team",
   "dataset_role": "group",
-  "description": "Template để NHÓM tự viết đúng 10 case: 5 single-turn dùng query và 5 multi-turn dùng turns. Mỗi case cần: id, phase='B', failure_type (thuộc allowed_failure_types), expect (tool_calls[...] hoặc no_tool=true), và metadata.what_it_tests. File để trống có chủ đích vì mỗi nhóm phải tự thiết kế các case này.",
-  "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "description": "10 eval cases thiết kế bởi team bao gồm 5 single-turn và 5 multi-turn, chủ yếu tập trung đánh giá công cụ tìm kiếm GitHub mới cùng với các hành vi sửa lỗi, hỏi lại, ranh giới an toàn.",
+  "cases": [
+    {
+      "id": "G01_github_routing",
+      "phase": "B",
+      "suite": "group",
+      "query": "Tìm các repository chứa mã nguồn của FastAPI trên GitHub",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "FastAPI"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Tìm kiếm mã nguồn repo trên GitHub -> định tuyến chính xác sang công cụ github"
+      }
+    },
+    {
+      "id": "G02_github_limit_arg",
+      "phase": "B",
+      "suite": "group",
+      "query": "Tìm giúp mình 3 repo GitHub phổ biến nhất về machine learning",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "machine learning",
+              "limit": 3,
+              "sort": "stars"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Trích xuất tham số giới hạn limit=3 và sắp xếp phổ biến (stars) cho github search"
+      }
+    },
+    {
+      "id": "G03_out_of_scope_cooking",
+      "phase": "B",
+      "suite": "group",
+      "query": "Hướng dẫn mình cách nấu món súp cua ngon tại nhà",
+      "failure_type": "out_of_scope",
+      "expect": {
+        "no_tool": true
+      },
+      "metadata": {
+        "what_it_tests": "Chủ đề nấu ăn ngoài phạm vi của trợ lý nghiên cứu -> không gọi tool"
+      }
+    },
+    {
+      "id": "G04_missing_github_query",
+      "phase": "B",
+      "suite": "group",
+      "query": "Tìm giúp mình một số repository trên GitHub với",
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Thiếu từ khóa tìm kiếm github -> gọi clarify kiểu text để hỏi thêm thông tin"
+      }
+    },
+    {
+      "id": "G05_confirm_before_telegram",
+      "phase": "B",
+      "suite": "group",
+      "query": "Gửi bản báo cáo này lên kênh Telegram của dự án",
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Hành vi gửi thông tin lên mạng xã hội -> hỏi lại để lấy xác nhận yes_no trước"
+      }
+    },
+    {
+      "id": "G06_multi_github_refine",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tìm các repo GitHub về game engines"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ lấy 3 kết quả hàng đầu thôi"
+        },
+        {
+          "role": "user",
+          "content": "Sắp xếp theo số forks nhé"
+        }
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "game engines",
+              "limit": 3,
+              "sort": "forks"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: lưu giữ từ khóa gốc, tích lũy tham số limit=3 và cập nhật sort=forks"
+      }
+    },
+    {
+      "id": "G07_multi_clarify_then_github",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tìm repository trên GitHub giúp mình"
+        },
+        {
+          "role": "user",
+          "content": "Từ khóa là langchain nhé"
+        },
+        {
+          "role": "user",
+          "content": "Đúng rồi, tiến hành tìm đi"
+        }
+      ],
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "langchain"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: sau khi clarify thiếu từ khóa, điền đúng langchain và thực thi github search"
+      }
+    },
+    {
+      "id": "G08_multi_correction_github",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tìm repo GitHub về react-native"
+        },
+        {
+          "role": "user",
+          "content": "À nhầm, tìm về flutter cơ"
+        },
+        {
+          "role": "user",
+          "content": "Lấy 5 repo hàng đầu nhé"
+        }
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "flutter",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: sửa đổi từ khóa tìm kiếm gốc từ react-native sang flutter và đặt limit=5"
+      }
+    },
+    {
+      "id": "G09_multi_out_of_scope_reset",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tìm repo github về tensorflow"
+        },
+        {
+          "role": "user",
+          "content": "Thôi dẹp đi, giải giúp mình phương trình x^2 - 4 = 0"
+        },
+        {
+          "role": "user",
+          "content": "Trả lời luôn phương trình đó"
+        }
+      ],
+      "failure_type": "out_of_scope",
+      "expect": {
+        "no_tool": true
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: hủy truy vấn tìm kiếm cũ, chuyển sang hỏi toán học ngoài phạm vi -> không gọi tool"
+      }
+    },
+    {
+      "id": "G10_multi_switch_to_github",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tin tức AI hôm nay có gì nổi bật trên mạng xã hội?"
+        },
+        {
+          "role": "user",
+          "content": "Bỏ qua mạng xã hội đi, tìm các repo github liên quan đến Agentic AI"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ lấy 5 repo thôi"
+        }
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github",
+            "args": {
+              "query": "Agentic AI",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: chuyển đổi từ social_search sang github search và cập nhật limit=5"
+      }
+    }
+  ]
 }

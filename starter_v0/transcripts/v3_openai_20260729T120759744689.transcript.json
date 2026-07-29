@@ -1,0 +1,124 @@
+{
+  "version": "v3",
+  "provider": "openai",
+  "artifact_version": "v3+p3a52f45f18ca+tc7028274cb98",
+  "prompt_hash": "3a52f45f18ca306cebec7ae1dd5124a8b4c842a5f8bf9ed0eea1390e6a15e2a7",
+  "tools_hash": "c7028274cb983b40b6e55705c6575a1d856edb356215f961619d3cae8e520418",
+  "query": "tìm repo của VIN-20K",
+  "status": "answered",
+  "response": "**Top 5 GitHub repositories matching “VIN-20K”**\n\n- Vin Uni Practitioner 20K Day 7 (Python). – [github.com](https://github.com/MathematicGuy/2A202600572-Dinh_Nhat_Thanh-Day07)  \n- Repository related to VinAI 20K Hackathon. – [github.com](https://github.com/vietnhan0207/VinAI_20K_Hackathon_01)  \n- Python project, appears to be a student assignment. – [github.com](https://github.com/Vinod-kumar-dandu/20KH1A3312VINODKUMAR)  \n- Repository with no description. – [github.com](https://github.com/VutukuruVinitha/20KH1A04A3Vinitha)  \n- File repository, likely unrelated to VIN-20K code. – [github.com](https://github.com/vinarahmania/file-D-TUGAS-20SEKOLAH-20VINA-TUGAS-20KULIAH-Semester-203-Pemrograman-20Web-Tugas-20Kelompok2.ht)",
+  "tool_events": [
+    {
+      "tool": "github",
+      "args": {
+        "query": "VIN-20K",
+        "limit": 5,
+        "sort": "stars"
+      },
+      "result": {
+        "tool": "github",
+        "query": "VIN-20K",
+        "sort": "stars",
+        "total_count": 5,
+        "items": [
+          {
+            "name": "2A202600572-Dinh_Nhat_Thanh-Day07",
+            "full_name": "MathematicGuy/2A202600572-Dinh_Nhat_Thanh-Day07",
+            "description": "Vin Uni Practitioner 20K Day 7",
+            "url": "https://github.com/MathematicGuy/2A202600572-Dinh_Nhat_Thanh-Day07",
+            "stars": 0,
+            "forks": 0,
+            "language": "Python",
+            "updated_at": "2026-06-05T16:11:07Z",
+            "source": "github.com"
+          },
+          {
+            "name": "VinAI_20K_Hackathon_01",
+            "full_name": "vietnhan0207/VinAI_20K_Hackathon_01",
+            "description": null,
+            "url": "https://github.com/vietnhan0207/VinAI_20K_Hackathon_01",
+            "stars": 0,
+            "forks": 0,
+            "language": null,
+            "updated_at": "2026-04-08T17:07:13Z",
+            "source": "github.com"
+          },
+          {
+            "name": "20KH1A3312VINODKUMAR",
+            "full_name": "Vinod-kumar-dandu/20KH1A3312VINODKUMAR",
+            "description": null,
+            "url": "https://github.com/Vinod-kumar-dandu/20KH1A3312VINODKUMAR",
+            "stars": 0,
+            "forks": 0,
+            "language": "Python",
+            "updated_at": "2024-03-21T16:54:58Z",
+            "source": "github.com"
+          },
+          {
+            "name": "20KH1A04A3Vinitha",
+            "full_name": "VutukuruVinitha/20KH1A04A3Vinitha",
+            "description": null,
+            "url": "https://github.com/VutukuruVinitha/20KH1A04A3Vinitha",
+            "stars": 0,
+            "forks": 0,
+            "language": null,
+            "updated_at": "2024-04-01T05:32:54Z",
+            "source": "github.com"
+          },
+          {
+            "name": "file-D-TUGAS-20SEKOLAH-20VINA-TUGAS-20KULIAH-Semester-203-Pemrograman-20Web-Tugas-20Kelompok2.ht",
+            "full_name": "vinarahmania/file-D-TUGAS-20SEKOLAH-20VINA-TUGAS-20KULIAH-Semester-203-Pemrograman-20Web-Tugas-20Kelompok2.ht",
+            "description": null,
+            "url": "https://github.com/vinarahmania/file-D-TUGAS-20SEKOLAH-20VINA-TUGAS-20KULIAH-Semester-203-Pemrograman-20Web-Tugas-20Kelompok2.ht",
+            "stars": 0,
+            "forks": 0,
+            "language": null,
+            "updated_at": "2021-12-06T16:00:07Z",
+            "source": "github.com"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "format",
+      "args": {
+        "items": [
+          {
+            "title": "MathematicGuy/2A202600572-Dinh_Nhat_Thanh-Day07",
+            "url": "https://github.com/MathematicGuy/2A202600572-Dinh_Nhat_Thanh-Day07",
+            "summary": "Vin Uni Practitioner 20K Day 7 (Python)."
+          },
+          {
+            "title": "vietnhan0207/VinAI_20K_Hackathon_01",
+            "url": "https://github.com/vietnhan0207/VinAI_20K_Hackathon_01",
+            "summary": "Repository related to VinAI 20K Hackathon."
+          },
+          {
+            "title": "Vinod-kumar-dandu/20KH1A3312VINODKUMAR",
+            "url": "https://github.com/Vinod-kumar-dandu/20KH1A3312VINODKUMAR",
+            "summary": "Python project, appears to be a student assignment."
+          },
+          {
+            "title": "VutukuruVinitha/20KH1A04A3Vinitha",
+            "url": "https://github.com/VutukuruVinitha/20KH1A04A3Vinitha",
+            "summary": "Repository with no description."
+          },
+          {
+            "title": "vinarahmania/file-D-TUGAS-20SEKOLAH-20VINA-TUGAS-20KULIAH-Semester-203-Pemrograman-20Web-Tugas-20Kelompok2.ht",
+            "url": "https://github.com/vinarahmania/file-D-TUGAS-20SEKOLAH-20VINA-TUGAS-20KULIAH-Semester-203-Pemrograman-20Web-Tugas-20Kelompok2.ht",
+            "summary": "File repository, likely unrelated to VIN-20K code."
+          }
+        ],
+        "template": "bullets",
+        "headline": "Top 5 GitHub repositories matching “VIN-20K”"
+      },
+      "result": {
+        "tool": "render_digest",
+        "template": "bullets",
+        "markdown": "- Vin Uni Practitioner 20K Day 7 (Python). - [github.com](https://github.com/MathematicGuy/2A202600572-Dinh_Nhat_Thanh-Day07)\n- Repository related to VinAI 20K Hackathon. - [github.com](https://github.com/vietnhan0207/VinAI_20K_Hackathon_01)\n- Python project, appears to be a student assignment. - [github.com](https://github.com/Vinod-kumar-dandu/20KH1A3312VINODKUMAR)\n- Repository with no description. - [github.com](https://github.com/VutukuruVinitha/20KH1A04A3Vinitha)\n- File repository, likely unrelated to VIN-20K code. - [github.com](https://github.com/vinarahmania/file-D-TUGAS-20SEKOLAH-20VINA-TUGAS-20KULIAH-Semester-203-Pemrograman-20Web-Tugas-20Kelompok2.ht)",
+        "item_count": 5
+      }
+    }
+  ],
+  "timestamp": "2026-07-29T12:07:59.744689"
+}

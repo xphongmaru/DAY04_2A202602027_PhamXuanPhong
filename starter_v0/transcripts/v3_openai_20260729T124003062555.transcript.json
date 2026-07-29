@@ -1,0 +1,28 @@
+{
+  "version": "v3",
+  "provider": "openai",
+  "artifact_version": "v3+p3a52f45f18ca+tc7028274cb98",
+  "prompt_hash": "3a52f45f18ca306cebec7ae1dd5124a8b4c842a5f8bf9ed0eea1390e6a15e2a7",
+  "tools_hash": "c7028274cb983b40b6e55705c6575a1d856edb356215f961619d3cae8e520418",
+  "query": "tìm repository của VinhNguyenViet-st",
+  "status": "answered",
+  "response": "Không tìm thấy repository nào trên GitHub cho cụm từ **“VinhNguyenViet‑st”**.  \n\nBạn có thể kiểm tra lại chính tả, tên người dùng hoặc cung cấp thêm thông tin (ví dụ: tên dự án, ngôn ngữ, mô tả) để mình có thể tìm kiếm chính xác hơn.",
+  "tool_events": [
+    {
+      "tool": "github",
+      "args": {
+        "query": "VinhNguyenViet-st",
+        "limit": 5,
+        "sort": "stars"
+      },
+      "result": {
+        "tool": "github",
+        "query": "VinhNguyenViet-st",
+        "sort": "stars",
+        "total_count": 0,
+        "items": []
+      }
+    }
+  ],
+  "timestamp": "2026-07-29T12:40:03.062555"
+}

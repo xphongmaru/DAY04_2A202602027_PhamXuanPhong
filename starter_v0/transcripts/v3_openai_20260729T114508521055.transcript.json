@@ -1,0 +1,129 @@
+{
+  "version": "v3",
+  "provider": "openai",
+  "artifact_version": "v3+p3a52f45f18ca+tc7028274cb98",
+  "prompt_hash": "3a52f45f18ca306cebec7ae1dd5124a8b4c842a5f8bf9ed0eea1390e6a15e2a7",
+  "tools_hash": "c7028274cb983b40b6e55705c6575a1d856edb356215f961619d3cae8e520418",
+  "query": "Tìm các repository chứa mã nguồn của FastAPI trên GitHub",
+  "status": "answered",
+  "response": "**Top 5 GitHub repositories related to FastAPI**\n\n- FastAPI framework, high performance, easy to learn, fast to code, ready for production – [GitHub](https://github.com/fastapi/fastapi)  \n- Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60‑95% fewer tokens for JSON, same answers – [GitHub](https://github.com/headroomlabs-ai/headroom)  \n- Full‑stack, modern web application template using FastAPI, React, SQLModel, PostgreSQL, Docker, GitHub Actions, automatic HTTPS and more – [GitHub](https://github.com/fastapi/full-stack-fastapi-template)  \n- Curso para aprender Python desde cero, incluye ejemplos y proyectos, không trực tiếp FastAPI nhưng liên quan tới Python – [GitHub](https://github.com/mouredev/Hello-Python)  \n- Build multimodal AI applications with cloud‑native stack, includes FastAPI integration – [GitHub](https://github.com/jina-ai/serve)  ",
+  "tool_events": [
+    {
+      "tool": "github",
+      "args": {
+        "query": "FastAPI",
+        "limit": 5,
+        "sort": "stars"
+      },
+      "result": {
+        "tool": "github",
+        "query": "FastAPI",
+        "sort": "stars",
+        "total_count": 397072,
+        "items": [
+          {
+            "name": "fastapi",
+            "full_name": "fastapi/fastapi",
+            "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+            "url": "https://github.com/fastapi/fastapi",
+            "stars": 100998,
+            "forks": 9704,
+            "language": "Python",
+            "updated_at": "2026-07-29T02:51:45Z",
+            "source": "github.com"
+          },
+          {
+            "name": "headroom",
+            "full_name": "headroomlabs-ai/headroom",
+            "description": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.",
+            "url": "https://github.com/headroomlabs-ai/headroom",
+            "stars": 62986,
+            "forks": 4774,
+            "language": "Python",
+            "updated_at": "2026-07-29T04:42:26Z",
+            "source": "github.com"
+          },
+          {
+            "name": "full-stack-fastapi-template",
+            "full_name": "fastapi/full-stack-fastapi-template",
+            "description": "Full stack, modern web application template. Using FastAPI, React, SQLModel, PostgreSQL, Docker, GitHub Actions, automatic HTTPS and more.",
+            "url": "https://github.com/fastapi/full-stack-fastapi-template",
+            "stars": 44474,
+            "forks": 8846,
+            "language": "TypeScript",
+            "updated_at": "2026-07-29T04:18:18Z",
+            "source": "github.com"
+          },
+          {
+            "name": "Hello-Python",
+            "full_name": "mouredev/Hello-Python",
+            "description": "Curso para aprender el lenguaje de programación Python desde cero y para principiantes. 100 clases, 44 horas en vídeo, código, proyectos y grupo de chat. Fundamentos, frontend, backend, testing, IA...",
+            "url": "https://github.com/mouredev/Hello-Python",
+            "stars": 36653,
+            "forks": 2326,
+            "language": "Python",
+            "updated_at": "2026-07-29T02:59:26Z",
+            "source": "github.com"
+          },
+          {
+            "name": "serve",
+            "full_name": "jina-ai/serve",
+            "description": "☁️ Build multimodal AI applications with cloud-native stack",
+            "url": "https://github.com/jina-ai/serve",
+            "stars": 21863,
+            "forks": 2242,
+            "language": "Python",
+            "updated_at": "2026-07-28T04:42:59Z",
+            "source": "github.com"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "format",
+      "args": {
+        "items": [
+          {
+            "title": "fastapi/fastapi",
+            "url": "https://github.com/fastapi/fastapi",
+            "summary": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+            "source": "GitHub"
+          },
+          {
+            "title": "headroomlabs-ai/headroom",
+            "url": "https://github.com/headroomlabs-ai/headroom",
+            "summary": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers.",
+            "source": "GitHub"
+          },
+          {
+            "title": "fastapi/full-stack-fastapi-template",
+            "url": "https://github.com/fastapi/full-stack-fastapi-template",
+            "summary": "Full stack, modern web application template using FastAPI, React, SQLModel, PostgreSQL, Docker, GitHub Actions, automatic HTTPS and more.",
+            "source": "GitHub"
+          },
+          {
+            "title": "mouredev/Hello-Python",
+            "url": "https://github.com/mouredev/Hello-Python",
+            "summary": "Curso para aprender Python desde cero, incluye ejemplos y proyectos, không trực tiếp FastAPI nhưng liên quan tới Python.",
+            "source": "GitHub"
+          },
+          {
+            "title": "jina-ai/serve",
+            "url": "https://github.com/jina-ai/serve",
+            "summary": "Build multimodal AI applications with cloud-native stack, includes FastAPI integration.",
+            "source": "GitHub"
+          }
+        ],
+        "template": "bullets",
+        "headline": "Top 5 GitHub repositories related to FastAPI"
+      },
+      "result": {
+        "tool": "render_digest",
+        "template": "bullets",
+        "markdown": "- FastAPI framework, high performance, easy to learn, fast to code, ready for production - [GitHub](https://github.com/fastapi/fastapi)\n- Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. - [GitHub](https://github.com/headroomlabs-ai/headroom)\n- Full stack, modern web application template using FastAPI, React, SQLModel, PostgreSQL, Docker, GitHub Actions, automatic HTTPS and more. - [GitHub](https://github.com/fastapi/full-stack-fastapi-template)\n- Curso para aprender Python desde cero, incluye ejemplos y proyectos, không trực tiếp FastAPI nhưng liên quan tới Python. - [GitHub](https://github.com/mouredev/Hello-Python)\n- Build multimodal AI applications with cloud-native stack, includes FastAPI integration. - [GitHub](https://github.com/jina-ai/serve)",
+        "item_count": 5
+      }
+    }
+  ],
+  "timestamp": "2026-07-29T11:45:08.521055"
+}
